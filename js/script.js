@@ -2,6 +2,9 @@
 var today = dayjs();
 $("#currentDay").text(today.format("dddd[,] MMMM D"));
 
+var time = dayjs().hour();
+console.log(time);
+
 // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
 
 // Save the event in local storage when the save button is clicked in that timeblock.
@@ -13,17 +16,41 @@ $(".save").on("click", function () {
     localStorage.setItem(time, text);
 })
 // Persist events between refreshes of a page
-$("#time7 .description").val(localStorage.getItem("time7"));
-$("#time8 .description").val(localStorage.getItem("time8"));
-$("#time9 .description").val(localStorage.getItem("time9"));
-$("#time10 .description").val(localStorage.getItem("time10"));
-$("#time11 .description").val(localStorage.getItem("time11"));
-$("#time12 .description").val(localStorage.getItem("time12"));
-$("#time1 .description").val(localStorage.getItem("time1"));
-$("#time2 .description").val(localStorage.getItem("time2"));
-$("#time3 .description").val(localStorage.getItem("time3"));
-$("#time4 .description").val(localStorage.getItem("time4"));
-$("#time5 .description").val(localStorage.getItem("time5"));
-$("#time6 .description").val(localStorage.getItem("time6"));
+$("#7 .description").val(localStorage.getItem("7"));
+$("#8 .description").val(localStorage.getItem("8"));
+$("#9 .description").val(localStorage.getItem("9"));
+$("#10 .description").val(localStorage.getItem("10"));
+$("#11 .description").val(localStorage.getItem("11"));
+$("#12 .description").val(localStorage.getItem("12"));
+$("#13 .description").val(localStorage.getItem("13"));
+$("#14 .description").val(localStorage.getItem("14"));
+$("#15 .description").val(localStorage.getItem("15"));
+$("#16 .description").val(localStorage.getItem("16"));
+$("#17 .description").val(localStorage.getItem("17"));
+$("#18 .description").val(localStorage.getItem("18"));
 
-
+// Set the colour of the planner depending on the current time
+const rows = document.getElementsByClassName("row");
+Array.from(rows).forEach(row => {
+  let
+    rowIdString = row.id,
+    rowHour;
+  if (rowIdString) {
+    rowHour = parseInt(rowIdString);
+  }
+  if (rowHour) {
+    // Compares row id to current hour and sets color accordingly
+    if (time === rowHour) {
+      setColor(row, "red");
+    } else if ((time < rowHour) && (time > rowHour - 6)) {
+      setColor(row, "green");
+    } else if ((time > rowHour) && (time < rowHour + 6)) {
+      setColor(row, "lightgrey");
+    } else {
+      setColor(row, "white");
+    }
+  }
+});
+function setColor(element, color) {
+  element.style.backgroundColor = color;
+}
