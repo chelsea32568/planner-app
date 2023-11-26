@@ -39,12 +39,12 @@ Array.from(rows).forEach(row => {
     rowHour = parseInt(rowIdString);
   }
   if (rowHour) {
-    // Compares row id to current hour and sets color accordingly
+    // Compares row id to current hour and sets color based on this
     if (time === rowHour) {
       setColor(row, "red");
-    } else if ((time < rowHour) && (time > rowHour - 6)) {
+    } else if (time < rowHour) {
       setColor(row, "green");
-    } else if ((time > rowHour) && (time < rowHour + 6)) {
+    } else if (time > rowHour) {
       setColor(row, "lightgrey");
     } else {
       setColor(row, "white");
