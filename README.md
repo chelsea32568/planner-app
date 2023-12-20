@@ -1,6 +1,8 @@
 # Planner Application
 A calendar application that allows a user to save events for each hour of the day.
 
+Deployed App - https://chelsea32568.github.io/planner-app/ 
+
 ## Description
 This webpage contains a planner application. The aim was to create a planner application which stores user input to loca storage and informs the user of the current time based on a colour scheme with grey meaning the time has passed, red being the current time and green being the time left for the day. Throughout this project, I have developed an understanding of local storage and how dayjs can be used. I also developed my knowledge and understanidng of how to use bootstrap to format a web application. 
 
